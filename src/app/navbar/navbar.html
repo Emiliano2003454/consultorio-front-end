@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><i class="bi bi-hospital"></i> Consultorio</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item" *ngFor="let link of navLinks">
+          <a
+            class="nav-link"
+            [routerLink]="link.path"
+            routerLinkActive="active"
+            [class.disabled]="currentRoute === link.path"
+            [style.pointerEvents]="currentRoute === link.path ? 'none' : 'auto'"
+          >
+            <i class="{{ link.icon }} me-1"></i>{{ link.label }}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
