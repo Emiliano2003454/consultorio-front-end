@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -7,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class LoginService {
 
-  private baseUrl = "localhost:8080";
+  private baseUrl = "http://localhost:8080";
 
   constructor(private http: HttpClient) { }
 
@@ -15,13 +16,13 @@ export class LoginService {
     return this.http.post(`${this.baseUrl}/crearLogin`,data);
   }
   buscarLogin(data : any): Observable<any> {
-    return this.http.get(`${this.baseUrl}/buscarLogin`,data);
+    return this.http.post(`${this.baseUrl}/buscarLogin`,data);
   }
   actualizarLogin(data : any,id : number): Observable<any> {
     return this.http.put(`${this.baseUrl}/actualizarLogin/${id}`,data);
   }
-  eliminarLogin(data : any,id : number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/eliminarLogin/${id}`,data);
+  eliminarLogin(id : number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/eliminarLogin/${id}`);
   }
 }
 

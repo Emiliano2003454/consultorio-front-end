@@ -1,9 +1,14 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import Swal from 'sweetalert2';
+import { Navbar } from '../../navbar/navbar';
 
 @Component({
   selector: 'app-cita',
-  standalone: false,
+  standalone: true,
+  imports: [CommonModule, FormsModule, RouterModule, Navbar],
   templateUrl: './cita.html',
   styleUrl: './cita.css'
 })

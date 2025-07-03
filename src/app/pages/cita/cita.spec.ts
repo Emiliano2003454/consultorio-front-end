@@ -8,7 +8,7 @@ describe('Cita', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [Cita]
+      imports: [Cita]
     })
     .compileComponents();
 
